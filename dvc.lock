@@ -40,3 +40,27 @@ stages:
       hash: md5
       md5: 2ff4b9ad7134415ef4012a0e7b21978c
       size: 18793
+  tarin_eval:
+    cmd: python src\train_and_eval.py --config=params.yaml
+    deps:
+    - path: data/processed/test_winq.csv
+      hash: md5
+      md5: 0de807b3c2def4c44f82854681bcb404
+      size: 74951
+    - path: data/processed/train_winq.csv
+      hash: md5
+      md5: 2ff4b9ad7134415ef4012a0e7b21978c
+      size: 18793
+    - path: src\train_and_eval.py
+      hash: md5
+      md5: 0f75bf91b9413d04a4db73dec27ff6c5
+      size: 2284
+    params:
+      params.yaml:
+        estimater.ElasticNet.params.alpha: 0.9
+        estimater.ElasticNet.params.l1_ratio: 0.4
+    outs:
+    - path: saved_models/model.joblib
+      hash: md5
+      md5: 8c4b2af6cde4c1f22c3d3f39f59f9703
+      size: 1231

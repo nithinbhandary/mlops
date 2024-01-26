@@ -1,7 +1,7 @@
 base:
   prject: wineq
   randam_state: 13
-  target_col: target
+  target_col: TARGET
 
 data_source:
   s3_source: data_given/winequality.csv
@@ -20,7 +20,9 @@ estimater:
       alpha: 0.9
       l1_ratio: 0.4
 
-model_dir:
+model_dir: saved_models
+
+reports:
   params: report/params.json
   scores: report/scores.json
 
